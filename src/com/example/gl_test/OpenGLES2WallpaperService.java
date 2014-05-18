@@ -4,9 +4,14 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.content.pm.ConfigurationInfo;
 import android.opengl.GLSurfaceView.Renderer;
+import android.util.Log;
+import android.view.MotionEvent;
 import android.view.SurfaceHolder;
 
 public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
+	
+	public MotionEvent event_adas;
+	
 	@Override
 	public Engine onCreateEngine() {
 		return new OpenGLES2Engine();
@@ -14,6 +19,9 @@ public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
 	
 	class OpenGLES2Engine extends GLWallpaperService.GLEngine {
 
+		public OpenGLES2WallpaperService renderer;
+		
+		
 		@Override
 		public void onCreate(SurfaceHolder surfaceHolder) {
 			super.onCreate(surfaceHolder);
@@ -43,6 +51,8 @@ public abstract class OpenGLES2WallpaperService extends GLWallpaperService {
 			}			
 		}
 	}	
+	
+
 	
 	abstract Renderer getNewRenderer();
 }
