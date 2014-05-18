@@ -7,6 +7,6 @@ public class MainActivity extends OpenGLES2WallpaperService{
 
 	@Override
 	Renderer getNewRenderer() {
-		return new LessonOneRenderer();
+		return new LessonOneRenderer(this);
 	}
 }
