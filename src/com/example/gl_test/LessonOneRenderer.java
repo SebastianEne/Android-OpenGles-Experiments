@@ -47,8 +47,7 @@ public class LessonOneRenderer extends MainActivity implements GLSurfaceView.Ren
         GLES20.glEnable(GLES20.GL_CULL_FACE);
         
         plane = new Plane(mactivityContext);
-        particles = new ParticleSystem(1000, mactivityContext);
-				       
+        particles = new ParticleSystem(10, mactivityContext);				       
 	}
 	
 }

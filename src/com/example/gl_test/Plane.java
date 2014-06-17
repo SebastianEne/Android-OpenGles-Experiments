@@ -205,9 +205,10 @@ public class Plane {
         mTextureCoordinateHandle = GLES20.glGetAttribLocation(mProgramHandle, "a_TexCoordinate");
         
         
+        GLES20.glUniform1i(mTextureUniformHandle, 0);
         GLES20.glActiveTexture(GLES20.GL_TEXTURE0);
         GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mTextureDataHandle);
-        GLES20.glUniform1i(mTextureUniformHandle, 0);
+        GLES20.glEnable(GLES20.GL_TEXTURE_2D);
      
         
         mLightPosInEyeSpace[0] = 0.0f;
@@ -270,7 +271,8 @@ public class Plane {
 		
 		
 		// Draw:
-		GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 9);	
+		GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 9);
+        GLES20.glDisable(GLES20.GL_TEXTURE_2D);
 	
 	}
 
